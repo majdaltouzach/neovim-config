@@ -19,6 +19,8 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'windwp/nvim-autopairs'
 " call PlugInstall to install new plugins
 Plug 'HerringtonDarkholme/yats.vim'
+
+Plug 'xuhdev/vim-latex-live-preview' 
 call plug#end()
 
 " basics
@@ -241,3 +243,12 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+"Vimtex Config
+let g:vimtex_view_method = 'mupdf'
+let g:vimtex_compiler_method = 'latexrun'
+
+"Vimlivelatexpreview config 
+let g:livepreview_previewer = 'mupdf'
+"let g:livepreview_cursorhold_recompile = 0
+let g:livepreview_engine = 'latexrun'
