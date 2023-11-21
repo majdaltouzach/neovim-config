@@ -96,3 +96,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 
 " jsx
 let g:jsx_ext_required = 0
+
+"Vimtex Config
+let g:vimtex_view_method = 'mupdf'
+let g:vimtex_compiler_method='latexrun'
