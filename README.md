@@ -1,5 +1,7 @@
 # Neovim Config
-Clone in ~/.config/nvim directory using: 
-'''
-git clone https://github.com/majdaltouzach/neovim-config.git ~/.config/nvim
-'''
+Some basic Git commands are:
+```
+git status
+git add
+git commit
+```
