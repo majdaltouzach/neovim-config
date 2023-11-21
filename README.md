@@ -1,7 +1,5 @@
 # Neovim Config
-Some basic Git commands are:
+Clone the following repo into your >~/.config/nvim> by copying command below:
 ```
-git status
-git add
-git commit
+git clone https://github.com/majdaltouzach/neovim-config.git ~/.config/nvim
 ```
