@@ -26,6 +26,9 @@ let g:coc_global_extensions = [
   \ 'coc-vimtex',
   \ ]
 
+"coc.nvim mappings
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 "let g:snipMate = { 'snippet_version' : 1 }
 "VimTex Config
 filetype plugin indent on 
