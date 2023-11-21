@@ -27,9 +27,11 @@ let g:coc_global_extensions = [
   \ ]
 
 "coc.nvim mappings
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-"let g:snipMate = { 'snippet_version' : 1 }
+"Triggers autocompletion menu with <ctrl + space>
+inoremap <silent><expr> <c-space> coc#refresh()
+"Autocompletes selection with enter key
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 "VimTex Config
 filetype plugin indent on 
 let g:vimtex_view_method = 'mupdf'
