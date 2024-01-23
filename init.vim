@@ -21,6 +21,7 @@ Plug 'windwp/nvim-autopairs'
 Plug 'HerringtonDarkholme/yats.vim'
 
 Plug 'xuhdev/vim-latex-live-preview' 
+Plug 'https://github.com/NMAC427/guess-indent.nvim'
 call plug#end()
 
 " basics
