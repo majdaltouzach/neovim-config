@@ -24,6 +24,7 @@ Plug 'xuhdev/vim-latex-live-preview'
 Plug 'https://github.com/NMAC427/guess-indent.nvim'
 " WakaTime to log development time
 Plug 'wakatime/vim-wakatime'
+Plug 'numToStr/Comment.nvim'
 call plug#end()
 
 " basics
@@ -44,6 +45,7 @@ set expandtab
 set nobackup
 set noswapfile
 set nowrap
+lua require('Comment').setup()
 
 let g:coc_global_extensions = [
   \ 'coc-snippets',
