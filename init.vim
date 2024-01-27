@@ -20,7 +20,7 @@ Plug 'windwp/nvim-autopairs'
 " call PlugInstall to install new plugins
 Plug 'HerringtonDarkholme/yats.vim'
 
-Plug 'xuhdev/vim-latex-live-preview' 
+"Plug 'xuhdev/vim-latex-live-preview' 
 Plug 'https://github.com/NMAC427/guess-indent.nvim'
 " WakaTime to log development time
 Plug 'wakatime/vim-wakatime'
