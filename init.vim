@@ -16,7 +16,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'windwp/nvim-autopairs'
+"Plug 'windwp/nvim-autopairs'
 " call PlugInstall to install new plugins
 Plug 'HerringtonDarkholme/yats.vim'
 
