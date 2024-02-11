@@ -58,6 +58,7 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ 'coc-vimtex',
   \ 'coc-hls',
+  \ 'coc-pairs',
   \ ]
 " preferences
 inoremap jk <ESC>
