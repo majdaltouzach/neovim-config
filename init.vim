@@ -25,6 +25,9 @@ Plug 'https://github.com/NMAC427/guess-indent.nvim'
 " WakaTime to log development time
 Plug 'wakatime/vim-wakatime'
 Plug 'numToStr/Comment.nvim'
+Plug 'aklt/plantuml-syntax'
+Plug 'tyru/open-browser.vim'
+Plug 'https://github.com/weirongxu/plantuml-previewer.vim.git'
 call plug#end()
 
 " basics
