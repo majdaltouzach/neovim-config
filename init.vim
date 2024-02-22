@@ -28,6 +28,7 @@ Plug 'numToStr/Comment.nvim'
 Plug 'aklt/plantuml-syntax'
 Plug 'tyru/open-browser.vim'
 Plug 'https://github.com/weirongxu/plantuml-previewer.vim.git'
+Plug 'iamcco/markdown-preview.nvim'
 call plug#end()
 
 " basics
@@ -63,6 +64,7 @@ let g:coc_global_extensions = [
   \ 'coc-hls',
   \ 'coc-pairs',
   \ 'coc-clangd',
+  \ 'coc-markdownlint',
   \ ]
 " preferences
 inoremap jk <ESC>
