@@ -19,8 +19,9 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "Plug 'windwp/nvim-autopairs'
 " call PlugInstall to install new plugins
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'https://github.com/Shougo/neosnippet.vim'
 
-"Plug 'xuhdev/vim-latex-live-preview' 
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'https://github.com/NMAC427/guess-indent.nvim'
 " WakaTime to log development time
 Plug 'wakatime/vim-wakatime'
@@ -260,11 +261,23 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-"Vimtex Config
-let g:vimtex_view_method = 'mupdf'
+"VimTeX Config
+"let g:vimtex_view_method = 'zathura'
+
+" Or with a generic interface:
+let g:vimtex_view_general_viewer = 'evince'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+
+" VimTeX uses latexmk as the default compiler backend. If you use it, which is
+" strongly recommended, you probably don't need to configure anything. If you
+" want another compiler backend, you can change it as follows. The list of
+" supported backends and further explanation is provided in the documentation,
 let g:vimtex_compiler_method = 'latexrun'
 
-"Vimlivelatexpreview config 
-let g:livepreview_previewer = 'mupdf'
-"let g:livepreview_cursorhold_recompile = 0
+" Most VimTeX mappings rely on localleader and this can be changed with the
+" following line. The default is usually fine and is the symbol "\".
+let maplocalleader = ","
+
+"VimTex Live Preview
+let g:livepreview_previewer = 'evince'
 let g:livepreview_engine = 'latexrun'
