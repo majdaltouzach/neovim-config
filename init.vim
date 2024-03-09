@@ -1,5 +1,5 @@
 " Specify a directory for plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.nvim-plugins')
 
 Plug 'neoclide/coc.nvim', {'branch': 'master'}
 Plug 'scrooloose/nerdtree'
