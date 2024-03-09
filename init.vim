@@ -1,34 +1,92 @@
-" Specify a directory for plugins
 call plug#begin('~/.nvim-plugins')
-
-Plug 'neoclide/coc.nvim', {'branch': 'master'}
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'scrooloose/nerdtree'
-"Plug 'tsony-tsonev/nerdtree-git-plugin'
+Plug 'scrooloose/nerdcommenter'
+Plug 'christoomey/vim-tmux-navigator'
+"Plug 'zchee/deoplete-jedi'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive' 
+"Plug 'garbas/vim-snipmate'
+"Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'lervag/vimtex'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
-Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
-Plug 'scrooloose/nerdcommenter'
-"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+"Plug 'windwp/nvim-autopairs'
+" call PlugInstall to install new plugins
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'https://github.com/Shougo/neosnippet.vim'
 
-Plug 'christoomey/vim-tmux-navigator'
-
-"Plug 'morhetz/gruvbox'
-Plug 'https://github.com/romgrk/doom-one.vim'
-Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
-
-" Initialize plugin system
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'https://github.com/NMAC427/guess-indent.nvim'
+" WakaTime to log development time
+Plug 'wakatime/vim-wakatime'
+Plug 'numToStr/Comment.nvim'
+Plug 'aklt/plantuml-syntax'
+Plug 'tyru/open-browser.vim'
+Plug 'https://github.com/weirongxu/plantuml-previewer.vim.git'
+Plug 'iamcco/markdown-preview.nvim'
 call plug#end()
 
-inoremap jk <ESC>
-nmap <C-n> :NERDTreeToggle<CR>
-vmap ++ <plug>NERDCommenterToggle
-nmap ++ <plug>NERDCommenterToggle
+" basics
+filetype plugin indent on
+syntax on 
+set number
+set incsearch
+set ignorecase
+set smartcase
+set nohlsearch
+set autoindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=0
+set shiftwidth=4
+set expandtab
+set nobackup
+set noswapfile
+set nowrap
+lua require('Comment').setup()
 
-" open NERDTree automatically
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * NERDTree
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-tsserver',
+  \ 'coc-eslint', 
+  \ 'coc-json', 
+  \ 'coc-java',
+  \ 'coc-python',
+  \ 'coc-html',
+  \ 'coc-sh',
+  \ 'coc-vimtex',
+  \ 'coc-hls',
+  \ 'coc-pairs',
+  \ 'coc-clangd',
+  \ 'coc-markdownlint',
+  \ ]
+" preferences
+inoremap jk <ESC>
+let mapleader = "\<Space>"
+set pastetoggle=<F2>
+" j/k will move virtual lines (lines that wrap)
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+" Stay in visual mode when indenting. You will never have to run gv after
+" performing an indentation.
+vnoremap < <gv
+vnoremap > >gv
+" Make Y yank everything from the cursor to the end of the line. This makes Y
+" act more like C or D because by default, Y yanks the current line (i.e. the
+" same as yy).
+noremap Y y$
+" navigate split screens easily
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 
 let g:NERDTreeGitStatusWithFlags = 1
 "let g:WebDevIconsUnicodeDecorateFolderNodes = 1
@@ -52,28 +110,28 @@ let g:NERDTreeIgnore = ['^node_modules$']
 "let g:prettier#quickfix_auto_focus = 0
 " prettier command for coc
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-" run prettier on save
-"let g:prettier#autoformat = 0
-"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+" change spacing for language specific
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+" plugin settings
 
 
-" ctrlp
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" Theme
+syntax enable
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
+set background=dark
 
-" j/k will move virtual lines (lines that wrap)
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
 
-set number
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
 
-set smarttab
-set cindent
-set tabstop=2
-set shiftwidth=2
-" always uses spaces instead of tab characters
-set expandtab
+" always show signcolumns
+set signcolumn=yes
 
-"colorscheme doom-one
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
@@ -93,34 +151,13 @@ endfunction
 " Highlight currently open buffer in NERDTree
 autocmd BufEnter * call SyncTree()
 
-" coc config
-let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-pairs',
-  \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-prettier', 
-  \ 'coc-json', 
-  \ ]
-" from readme
-" if hidden is not set, TextEdit might fail.
-set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
-let g:doom_one_terminal_colors = v:true
-
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
-" always show signcolumns
-set signcolumn=yes
-
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<TAB>" :
+"      \ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -223,3 +260,24 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+"VimTeX Config
+"let g:vimtex_view_method = 'zathura'
+
+" Or with a generic interface:
+let g:vimtex_view_general_viewer = 'evince'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+
+" VimTeX uses latexmk as the default compiler backend. If you use it, which is
+" strongly recommended, you probably don't need to configure anything. If you
+" want another compiler backend, you can change it as follows. The list of
+" supported backends and further explanation is provided in the documentation,
+let g:vimtex_compiler_method = 'latexrun'
+
+" Most VimTeX mappings rely on localleader and this can be changed with the
+" following line. The default is usually fine and is the symbol "\".
+let maplocalleader = ","
+
+"VimTex Live Preview
+let g:livepreview_previewer = 'evince'
+let g:livepreview_engine = 'latexrun'
